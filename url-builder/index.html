@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Builder - ReachLocal</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="http://www.reachlocal.com/sites/all/themes/reachlocal_pluto/favicon.ico" type="image/vnd.microsoft.icon">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <style>
+        body{margin:0;padding:0;}
+        #wrapper{width:100%; margin:0 auto;}
+        #content-wrapper{max-width:1280px;margin:0 auto;}
+        #mainwrapper, #footerwrapper{padding:10px 5% 5% 10px;}
+        #header{padding-top:20px;}
+        .field,.result-title{padding: 5px 0 10px 0;}
+        .subtext{font-size: 13px;padding: 5px 0;}
+        .notification-area{font-size: 13px;padding: 15px 0;}
+        #results{background-color:#eeeeee;min-height:40px;padding:15px 15px 8px 15px;clear: both;}
+        #legal{background-color: #444444;min-height:50px;}
+        .legal-copy{max-width:1280px;margin:0 auto;padding:20px 5% 5% 10px;}
+        .legal-copy p{color:#ffffff;font-size:11px;text-align:center;}
+        .section{padding-top:20px;}
+        #copytextarea{width:100%;}
+        .validation-message{color:red;padding-top:15px;}
+    </style>
+</head>
+<body>
+<div id="wrapper">
+<div id="content-wrapper">
+<div id="header">
+    <img src="http://go.reachlocal.com/rs/reachlocal2/images/RL-textLogox.gif" border="0"
+         width="130px">
+</div>
+<div id="mainwrapper">
+<form id="url_builder" class="cf" action="/">
+<div data-type="STATIC_TEXT" data-page="1" class="field section">
+    <div class="cc"><strong>Step 1</strong>: Enter the URL of your website.</div>
+    <div class="subtext cc subtext--below">(e.g. http://www.urchin.com/download.html)</div>
+</div>
+<div data-type="TEXT" data-page="1" class="field">
+
+    <label for="website">Website URL<span> *</span></label>
+    <input type="text" name="website" id="render_website">
+
+    <div id="website-validation-message" class="validation-message custom" style="display:none;font-color:red;">Please enter a valid URL. It must be in this format : http://www.urchin.com/download.html</div>
+</div>
+
+<div data-type="STATIC_TEXT" data-page="1" class="field section"><div class="cc">
+    <strong> Step 2</strong>: Fill in the fields below. <strong> Lead Source, Lead Source Details and Campaign Name</strong> should always be used. The rest are optional.</div>
+</div>
+<div data-type="TEXT" data-page="1" class="field">
+    <label for="utm_source">Lead Source<span> *</span></label><br />
+    <div class="subtext cc subtext--below">(Select one for the Lead Source Value (UTM Medium/src)</div>
+    <select id="UtmSource">
+        <option value="select">Select One</option>
+        <option value="display">Display</option>
+        <option value="email">Email</option>
+        <option value="internal-share">Internal Share</option>
+        <option value="ppc">PPC</option>
+        <option value="pr">PR</option>
+        <option value="retargeting">Retargeting</option>
+        <option value="social-media">Social Media</option>
+        <option value="third-party">Third Party</option>
+
+    </select>
+
+
+</div>
+
+
+<div id="displayDetails" class="display" style="display:none;">
+    <div data-type="TEXT" data-page="1" class="field">
+        <label>Lead Source Details</label><span> *</span><br />
+        <div class="subtext cc subtext--below">Select one of the Lead Source Details (UTM Source/lsd)</div>
+        <select id="displayDetailsSelect">
+            <option value="select">Select One</option>
+            <option value="bing">Bing</option>
+            <option value="direct-buy">Direct Buy</option>
+            <option value="facebook">Facebook</option>
+            <option value="google">Google</option>
+            <option value="linkedIn">LinkedIn</option>
+            <option value="network">Network</option>
+            <option value="pinterest">Pinterest</option>
+            <option value="simplifi">Simpli.fi</option>
+            <option value="twitter">Twitter</option>
+            <option value="yahoo">Yahoo</option>
+            <option value="youtube">Youtube</option>
+            <option value="capterra">Capterra</option>
+            <option value="getapp">GetApp</option>
+        </select>
+
+    </div>
+</div>
+<div id="emailDisplay" class="display" style="display:none;">
+    <div data-type="TEXT" data-page="1" class="field">
+        <label>Email Lead Source Detail</label><span> *</span><br />
+        <div class="subtext cc subtext--below">Fill in the field for the Lead Source Details (UTM Source/lsd)</div>
+        <input type="text" name="displayemail" id="displayEmail">
+    </div>
+</div>
+<div id="prDisplay" class="display" style="display:none;">
+    <div data-type="TEXT" data-page="1" class="field">
+        <label>PR Lead Source Detail</label><span> *</span><br />
+        <div class="subtext cc subtext--below">Fill in the field for the Lead Source Details (UTM Source/lsd)</div>
+        <input type="text" name="displaypr" id="displayPR">
+    </div>
+</div>
+<div id="internalShare" class="display" style="display:none;">
+    <div data-type="TEXT" data-page="1" class="field">
+        <label>Lead Source Details</label><span> *</span><br />
+        <div class="subtext cc subtext--below">Select one of the Lead Source Details (UTM Source/lsd)</div>
+        <select id="internalDetailsSelect">
+            <option value="select">Select One</option>
+            <option value="facebook">Facebook</option>
+            <option value="googleplus">Google+</option>
+            <option value="linkedin">Linkedin</option>
+            <option value="other">Other</option>
+            <option value="pinterest">Pinterest</option>
+            <option value="slideshare">Slideshare</option>
+            <option value="twitter">Twitter</option>
+            <option value="youtube">Youtube</option>
+
+        </select>
+
+    </div>
+</div>
+<div id="ppcDetails" class="display" style="display:none;">
+    <div data-type="TEXT" data-page="1" class="field">
+        <label>Lead Source Details</label><span> *</span><br />
+        <div class="subtext cc subtext--below">Select one of the Lead Source Details (UTM Source/lsd)</div>
+        <select id="ppcDetailsSelect">
+            <option value="select">Select One</option>
+            <option value="bing">Bing</option>
+            <option value="google">Google</option>
+            <option value="other">Other</option>
+            <option value="yahoo">Yahoo</option>
+            <option value="capterra">Capterra</option>
+            <option value="getapp">GetApp</option>
+
+        </select>
+
+    </div>
+</div>
+<div id="retargetDisplay" class="display" style="display:none;">
+    <div data-type="TEXT" data-page="1" class="field">
+        <label>Lead Source Details</label><span> *</span><br />
+        <div class="subtext cc subtext--below">Select one of the Lead Source Details (UTM Source/lsd)</div>
+        <select id="retargetDetailsSelect">
+            <option value="select">Select One</option>
+            <option value="adroll">Adroll</option>
+            <option value="bing">Bing</option>
+            <option value="email">Email</option>
+            <option value="facebook-rt">Facebook RT</option>
+            <option value="facebook">Facebook</option>
+            <option value="google">Google</option>
+            <option value="linkedin">Linkedin</option>
+            <option value="linkedin-rt">Linkedin RT</option>
+            <option value="other">Other</option>
+            <option value="simplifi">Simpli.fi</option>
+            <option value="yahoo">Yahoo</option>
+            <option value="yahoo-rt">Yahoo RT</option>
+
+        </select>
+
+    </div>
+</div>
+<div id="socialmediaDisplay" class="display" style="display:none;">
+    <div data-type="TEXT" data-page="1" class="field">
+        <label>Lead Source Details</label><span> *</span><br />
+        <div class="subtext cc subtext--below">Select one of the Lead Source Details (UTM Source/lsd)</div>
+        <select id="socialDetailsSelect">
+            <option value="select">Select One</option>
+            <option value="facebook">Facebook</option>
+            <option value="googleplus">Google+</option>
+            <option value="linkedin">Linkedin</option>
+            <option value="other">Other</option>
+            <option value="pinterest">Pinterest</option>
+            <option value="slideshare">Slideshare</option>
+            <option value="twitter">Twitter</option>
+            <option value="youtube">Youtube</option>
+
+        </select>
+
+    </div>
+</div>
+<div id="thirdpartyDisplay" class="display" style="display:none;">
+    <div data-type="TEXT" data-page="1" class="field">
+        <label>Lead Source Details</label><span> *</span><br />
+        <div class="subtext cc subtext--below">Select one of the Lead Source Details (UTM Source/lsd)</div>
+        <select id="thirdDetailsSelect">
+            <option value="select">Select One</option>
+            <option value="Affiliate">Affiliate</option>
+            <option value="email-banner">Email - banner</option>
+            <option value="email-sponsored">Email - Sponsored</option>
+            <option value="partner-provided-google">Partner Provided - Google</option>
+            <option value="web-partner-program">Web Partner Program</option>
+
+        </select>
+
+    </div>
+</div>
+
+<div id="emailDetails" class="display" style="display:none;">this is the display email</div>
+
+<div data-type="TEXT" data-page="1" class="field">
+    <label for="utm_campaign">Campaign Name<span> *</span></label>
+    <input type="text" name="utm_campaign" id="render_utm_campaign">
+    <div class="subtext cc subtext--below">(product, promo code, or slogan) UTM Campaign/cnm</div>
+</div>
+
+<div data-type="TEXT" data-page="1" class="field">
+    <label for="utm_content">Campaign Content</label>
+    <input type="text" name="utm_content" id="render_utm_content">
+    <div class="subtext cc subtext--below">(use to differentiate ads) UTM Content</div>
+</div>
+
+<div data-type="TEXT" data-page="1" class="field">
+    <label for="utm_term">Campaign Term</label>
+    <input type="text" name="utm_term" id="render_utm_term">
+    <div class="subtext cc subtext--below">(identify the paid keywords) UTM Terms</div>
+</div>
+
+
+<div data-type="TEXT" data-page="1" class="field">
+    <label for="cid_number">cid number</label>
+    <input type="text" name="cid_number" id="render_cid_number">
+    <div class="subtext cc subtext--below"></div>
+</div>
+
+<div id="alert-area"></div>
+<div class="mspin mspin-small" style="display: none;"><div>
+    <div>
+
+    </div>
+</div>
+
+</div>
+<input type="submit" name="g" value="Submit" id="g" onclick="showValues()">
+<input type="reset" value="Reset" onclick="hideValues()">
+
+</form>
+
+</div>
+<div id="footerwrapper">
+    <div class="result-title"><div class="left-block" style="float: left; width: 150px;">UTM String Result : </div><div class="right-block"><BUTTON id="copytextbtn" onClick="ClipBoard();" style="display:none;">Copy to Clipboard</BUTTON> <div id="copytextbtnexcluded" class=" subtext" style="display:none;">(clipboard button does not work with Safari)</div></div></div>
+    <div id="results">
+        <textarea id="copytextarea"></textarea>
+    </div>
+
+
+    <div class="notification-area">* Required fields</div>
+
+</div>
+
+<script type="text/javascript" src="js/convertdata.js" ></script>
+</div>
+<div id="legal">
+    <div class="legal-copy">
+
+        <p>&copy;2016 ReachLocal, Inc. All Rights Reserved. REACHLOCAL&reg; is a registered trademark. All other marks are the property of their respective owners.</p>
+    </div>
+</div>
+</div>
+</body>
+</html>
