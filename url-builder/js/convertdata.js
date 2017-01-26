@@ -88,7 +88,7 @@ document.getElementById('UtmSource').addEventListener('change', function () {
 
 
 //show final reasults in the correct box
-function showFinalString(i){
+function showFinalWebsiteString(i){
     var mystring = i;
 
     document.getElementById("copytextarea").innerHTML = mystring;
@@ -127,7 +127,7 @@ function displaySalesForceVals(utmvalue){
     return utmval;
 }
 
-function displayVals() {
+function getDisplayValues() {
     var displayID = ["emailDisplay", "prDisplay", "displayDetailsSelect", "internalDetailsSelect", "ppcDetailsSelect", "retargetDetailsSelect", "socialDetailsSelect", "thirdDetailsSelect"];
     var utmmed = $('#UtmSource').val();
     var singleValues = "";
@@ -257,7 +257,7 @@ function ridSpace(v){
     temp = temp.replace(/\s+/g, '');
     return temp;
 }
-function displayInputVals() {
+function getDisplayInputValues() {
 
     var campaign = $('#render_utm_campaign');
     var content = $('#render_utm_content');
@@ -301,7 +301,7 @@ function displayInputVals() {
     var fullstring = sfvalue + utmstring;
     return fullstring;
 }
-function displayWebsite() {
+function getDisplayWebsiteValue() {
     var websitevalue = $('#render_website');
     var finalwebsite = "";
     var urlStatus = websitecheck(websitevalue.val());
@@ -323,29 +323,29 @@ function displayWebsite() {
 function showValues() {
 
     var fields = $( ":input" ).serializeArray(); //not used
-    var newfield = displayVals();
-    var newInput = displayInputVals();
-    var finalnumber = displayWebsite();
+    var displayValues = getDisplayValues();
+    var inputValues = getDisplayInputValues();
+    var websiteURL = getDisplayWebsiteValue();
 
-    if (finalnumber !== ""){
-        finalnumber = finalnumber + newfield + newInput;
-        var encodefinalurl = encodeURI(finalnumber);
-        showFinalString(encodefinalurl);
+    if (websiteURL !== ""){
+        websiteURL = websiteURL + displayValues + inputValues;
+        var finalURL = encodeURI(websiteURL);
+        showFinalWebsiteString(finalURL);
         document.getElementById('website-validation-message').style.display = "none";
     }
     else {
         document.getElementById('website-validation-message').style.display = "block";
-        hideValues();
+        hideFinalWebsiteString();
 
     }
 }
 
-function hideValues() {
+function hideFinalWebsiteString() {
     var clearfield = "";
-    showFinalString(clearfield);
+    showFinalWebsiteString(clearfield);
 }
 
-function ClipBoard()
+function clipBoard()
 {
 
     var copyTextarea = document.querySelector('#copytextarea');
